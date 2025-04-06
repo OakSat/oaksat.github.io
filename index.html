@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-WX6GDCMV"></script>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="src/fetcher.js"></script>
+  <title>Alon Shabat - alonshabat.com</title>
+
+</head>
+
+<body>
+  <tags></tags>
+  <div class="container">
+
+    <!-- Header Section -->
+    <header id="header-container"></header>
+    <!-- Main Content -->
+    <div class="content-home">
+      <div class="profile-image">
+        <img src="assets/images/profile.png" alt="Alon Shabat">
+      </div>
+      <h1>Alon Shabat</h1>
+      <h2>Dad > Husband > Developer
+
+      </h2>
+
+      <p class="terminal-text">Hi, I’m Alon Shabat. I’m a full-time developer with a strong background in security
+        research, API development,
+        and sandboxing solutions. <br /> I specialize in building robust backend systems, optimizing database
+        performance, and crafting elegant web applications.
+
+        Beyond coding, I enjoy analyzing malicious JavaScript behaviors, sharing knowledge through mentorship, and
+        solving complex technical challenges. <br />
+
+
+        This site is where I share some of my work, side projects, thoughts, and whatever else feels worth putting out
+        there. Hope you find something useful or interesting!
+
+        <br /><br />
+        <b>Thanks for stopping by! </b>Time is one of the most valuable things we have.<br /> While you're here,
+        the world keeps moving—new lives begin, moments pass, and history is written.<br /> Here’s how much life has
+        started
+        since you arrived:
+      </p>
+
+    </div>
+
+    <div class="time-container">
+      <div class="progress">
+        <div class="progressBar"></div>
+      </div>
+      <div class="time-display">0 seconds</div>
+      <div class="birth-counter">People born since you arrived: 0</div>
+      <div class="milestone"></div> <!-- Milestone message will appear here -->
+    </div>
+
+    <script>
+      let startTime = Date.now();
+      let birthRatePerSecond = 4.33; // 260 births per minute / 60 seconds
+
+      // Define milestones (time in seconds and message)
+      const milestones = [
+        { time: 2, message: "* Your light since you got here reached the moon!" },
+        { time: 10, message: "* Usain Bolt could win the 100-meter gold medal at the Olympics by now!" },
+        { time: 30, message: "* You could have listened to the first verse of a typical song." },
+        { tune: 55, message: "* About 280,000 new stars were born, that's about the same as people in Jersy City." },
+        { time: 60, message: "* One minute! A baby sea turtle could reach the ocean in this time!" }
+      ];
+
+      let displayedMilestones = new Set();
+
+      function updateTime() {
+        let elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+        let minutes = Math.floor(elapsedTime / 60);
+        let seconds = elapsedTime % 60;
+
+        if (minutes > 0) {
+          document.querySelector('.time-display').innerText = minutes + " minutes " + seconds + " seconds";
+        } else {
+          document.querySelector('.time-display').innerText = elapsedTime + " seconds";
+        }
+
+
+
+        // Calculate births since page load
+        let births = Math.floor(elapsedTime * birthRatePerSecond);
+        document.querySelector('.birth-counter').innerText = "People born since you arrived: " + births.toLocaleString();
+
+        // Check for milestones
+        for (let milestone of milestones) {
+          if (elapsedTime >= milestone.time && !displayedMilestones.has(milestone.time)) {
+            displayedMilestones.add(milestone.time);
+            let milestoneDiv = document.querySelector('.milestone');
+            milestoneDiv.innerText = milestoneDiv.innerText + milestone.message + '\n';
+            milestoneDiv.style.opacity = 1; // Show milestone
+          }
+        }
+
+        requestAnimationFrame(updateTime);
+      }
+      function runProgressBar() {
+        let progress = document.querySelector(".progress");
+        let width = 0;
+        let interval = setInterval(frame, 100); // Update every 100 milliseconds
+
+        function frame() {
+          if (width >= 100) {
+            clearInterval(interval);
+            setTimeout(function () {
+              width = 0;
+              progress.style.width = width + "%";
+              runProgressBar(); // Restart after reset
+            }, 500); //small delay before restart.
+          } else {
+            width += 100 / 600; // 100% in 60 seconds (600 * 100ms)
+            progress.style.width = width + "%";
+          }
+        }
+      }
+
+      runProgressBar(); // Start the progress bar
+      updateTime(); // Start updating time
+    </script>
+    <p>NOTE: Feel free to browse, learn from, or even reuse parts of this website’s code — that’s what it’s here for. Just one small favor: please don’t copy my analytics tags. It’ll mess up my stats, and we’ll both have to live with that awkwardness.
+    </p>
+    <!-- Footer -->
+    <footer id="footer-container"></footer>
+  </div>
+</body>
+
+</html>
