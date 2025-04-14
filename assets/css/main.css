@@ -178,7 +178,7 @@ header nav a:hover {
 
 .code-jokes {
   font-family: "Fira Code", monospace;
-  white-space: pre;
+  white-space: pre-wrap;
   background-color: #1e1e1e;
   padding: 5px 10px;
 
