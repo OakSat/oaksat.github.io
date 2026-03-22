@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alon Shabat | Projects</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="src/fetcher.js"></script>
+  <script>
+    (() => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="site-name">Alon Shabat</a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle">
+     Dark theme
+    </button>
+  </div>
+</header>
+
+  <main class="container main-content">
+    <section class="page-intro">
+      <p class="eyebrow">Selected Work</p>
+      <h1>Projects & Publications</h1>
+      <p class="lead">
+        A small collection of side projects, teaching demos, and writing.
+      </p>
+    </section>
+
+    <section class="project-list">
+      
+      <article class="project-card">
+        <span class="project-type">Publication</span>
+        <h3>Run Your Own Local Chatbot with Docker</h3>
+        <p>
+          A practical guide, written as part of my LLM Playground project, for
+          running a local chatbot with Docker in a simple and approachable way.
+        </p>
+        <a href="https://medium.com/@alonshabat/run-your-own-local-chatbot-with-docker-4aa20163500f" target="_blank" rel="noopener noreferrer" class="text-link">
+          Read on Medium (with GitHub repo included)
+        </a>
+      </article>
+
+      <article class="project-card">
+        <span class="project-type">Project</span>
+        <h3>Ethical Demos</h3>
+        <p>
+          As a student mentor, I’ve had the chance to guide curious young minds
+          into the world of cybersecurity — helping them understand key concepts,
+          real-world scenarios, and essential industry terminology.
+        </p>
+        <p>
+          The demos below are hands-on simulations of common cyber attacks,
+          created strictly for educational use. Each one follows ethical
+          guidelines and aims to make security concepts more accessible and engaging.
+        </p>
+      </article>
+
+      <article class="project-card">
+        <span class="project-type">Teaching Demo</span>
+        <h3>Open Redirect Demo</h3>
+        <p>
+          A simple example showing how attackers can trick users into visiting
+          malicious sites by abusing insecure URL redirections.
+        </p>
+        <a href="https://github.com/OakSat/open_redirect_demo" target="_blank" rel="noopener noreferrer" class="text-link">
+          View on GitHub
+        </a>
+      </article>
+
+      <article class="project-card">
+        <span class="project-type">Teaching Demo</span>
+        <h3>Dictionary Attack Demo</h3>
+        <p>
+          A demonstration of how attackers can break weak passwords by rapidly
+          trying common words from a predefined list.
+        </p>
+        <a href="https://github.com/OakSat/dictionary-attack-demo" target="_blank" rel="noopener noreferrer" class="text-link">
+          View on GitHub
+        </a>
+      </article>
+
+      <article class="project-card">
+        <span class="project-type">Publication</span>
+        <h3>The ADHD Coder’s Guide to Focus</h3>
+        <p>
+          An article sharing my personal experience with coding while struggling
+          with ADHD, including thoughts about focus, music, and practical ways to
+          make deep work more achievable.
+        </p>
+        <a href="https://medium.com/@alonshabat/coding-with-adhd-finding-the-right-music-for-focus-plus-playlists-524ac924be53" target="_blank" rel="noopener noreferrer" class="text-link">
+          Read on Medium
+        </a>
+      </article>
+    </section>
+  </main>
+
+    <footer id="footer-container"></footer>
+<script src="src/switcher.js"></script>
+</body>
+</html>
